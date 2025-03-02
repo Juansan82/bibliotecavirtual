@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 7 Hábitos de los Adolescentes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            background: linear-gradient(135deg, #1f2a53, #0a0f2c);
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .background-elements::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-20px); }
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(10, 15, 44, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border: 2px solid #58A6FF;
+            position: relative;
+        }
+
+        .book-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .book-info img {
+            width: 200px;
+            border-radius: 8px;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .book-details {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .book-title {
+            color: #58A6FF;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #58A6FF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #4a90e2;
+            transform: scale(1.05);
+        }
+
+        .btn-green {
+            background-color: #4CAF50;
+        }
+
+        .btn-green:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .book-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .book-details {
+                text-align: center;
+            }
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-elements"></div>
+    <div class="container">
+        <div class="book-info">
+            <img src="https://imagessl4.casadellibro.com/a/l/s5/94/9788466340694.webp" alt="Los 7 Hábitos de los Adolescentes">
+            <div class="book-details">
+                <h1 class="book-title">Los 7 Hábitos de los Adolescentes</h1>
+                <p>
+                    Este libro, basado en el éxito de <strong>Los 7 Hábitos de la Gente Altamente Efectiva</strong> de Stephen Covey, 
+                    está diseñado para ayudar a los adolescentes a tomar mejores decisiones y desarrollar hábitos que los impulsen 
+                    al éxito en todas las áreas de su vida. Con historias inspiradoras, consejos prácticos y herramientas efectivas, 
+                    Sean Covey enseña a los jóvenes a mejorar su autoestima, manejar el tiempo, establecer metas y construir relaciones 
+                    positivas.
+                </p>
+                <p>
+                    Los siete hábitos presentados en el libro incluyen la proactividad, la planificación con un fin en mente, 
+                    la priorización de actividades importantes, el pensamiento en ganar-ganar, la comunicación efectiva, la colaboración 
+                    y el equilibrio en la vida.  
+                </p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="volver('desarrollopersonal.html')">Volver</button>
+            <button class="btn" onclick="volver('index.html')">Pagina Principal</button>
+            <button class="btn btn-green" onclick="leerPDF()">Comenzar a leer este libro</button>
+        </div>
+    </div>
+
+    <script>
+        function volver(url) {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000);
+        }
+
+        function leerPDF() {
+            window.open('loshabitosefectivos.pdf', '_blank');
+        }
+    </script>
+</body>
+</html>

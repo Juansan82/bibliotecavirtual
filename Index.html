@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Magníficos Literarios</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1f2a53, #0a0f2c); /* Fondo gradiente suave */
+            margin: 0;
+            padding: 0;
+            color: white;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeIn 1.5s ease-out forwards; /* Animación de entrada más lenta */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animación de salida para toda la página */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .header {
+            background-color: #2A4D8F;
+            color: white;
+            padding: 15px;
+            font-size: 30px;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 10px;
+            margin-top: 60px;
+            padding: 10px 30px;
+            box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .intro-objective-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            padding: 0 20px;
+        }
+
+        .intro-panel, .objective-panel {
+            background-color: rgba(10, 15, 44, 0.9);
+            padding: 20px;
+            width: 45%;
+            border-radius: 15px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
+            opacity: 1;
+            animation: none;
+        }
+
+        .intro-panel h2, .objective-panel h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #58A6FF;
+            text-transform: uppercase;
+        }
+
+        .intro-panel p, .objective-panel p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .carousel-container {
+            margin: 100px auto;
+            width: 90%;
+            max-width: 1000px;
+            background-color: #1E3A5F;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        .carousel-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            background-color: #315A99;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            border: 2px solid #2A4D8F;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            justify-content: center;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            animation: slideCarousel 8s ease-in-out infinite alternate;
+        }
+
+        .carousel-item {
+            text-align: center;
+            background: rgba(10, 15, 44, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel img {
+            width: 150px;
+            height: 225px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .carousel img:hover {
+            transform: scale(1.1);
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-theme {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #58A6FF;
+        }
+
+        .categories {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1.5s ease-out forwards; /* Animación para las categorías */
+        }
+
+        .category-box {
+            background-color: #2A4D8F;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            width: 200px;
+        }
+
+        .category-box:hover {
+            background-color: #315A99;
+            transform: translateY(-5px);
+        }
+
+        .category-box img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .category-description {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .categories-title {
+            font-size: 30px;
+            color: #58A6FF;
+            font-weight: bold;
+            margin-top: 100px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header fade-in">Los Magníficos Literarios</div>
+
+    <!-- Introducción y Objetivo -->
+    <div class="intro-objective-container fade-in">
+        <div class="intro-panel">
+            <h2>¿Quiénes Somos?</h2>
+            <p>Los Magníficos Literarios es un grupo dedicado a fomentar el amor por los libros y la lectura. Nuestro espacio está diseñado para que los niños se sientan parte de una comunidad donde compartir historias y conocimientos es una experiencia divertida y enriquecedora.</p>
+        </div>
+        <div class="objective-panel">
+            <h2>Nuestra Misión</h2>
+            <p>Crear un espacio virtual acogedor y dinámico donde los niños puedan explorar, descubrir y compartir su pasión por la lectura. A través de una amplia colección de libros digitales, actividades interactivas y recursos creativos, la biblioteca virtual fomenta un sentido de comunidad, permitiendo que cada niño se sienta parte de algo especial.</p>
+        </div>
+    </div>
+
+    <div class="carousel-container fade-in">
+        <div class="carousel-title">LIBROS DESTACADOS</div>
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://images.cdn1.buscalibre.com/fit-in/360x360/e7/b6/e7b6a491e82639020c4e8cd18eee711e.jpg" alt="Libro 1" onclick="irAlLibro1()">
+                    <div class="book-theme">Novela de aventuras</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi_V8i3qf-EomCUWUfnfH5azrOJ-ux8iUGYg&s" alt="Libro 2" onclick="irAlLibro2()">
+                    <div class="book-theme">Cuento filosófico</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i1.sndcdn.com/artworks-j7DjTfS7ynqYq5JC-cgsEtQ-t500x500.jpg" alt="Libro 3" onclick="irAlLibro3()">
+                    <div class="book-theme">Desarrollo personal</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.cdn1.buscalibre.com/fit-in/360x360/fc/c4/fcc4472cce4e4322ba48a81b1a313bfc.jpg" alt="Libro 4" onclick="irAlLibro4()">
+                    <div class="book-theme">Novela clásica</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/43/ca/43ca2fa6225dfc702908c7d48f46fc02.jpg" alt="Libro 5" onclick="irAlLibro5()">
+                    <div class="book-theme">Historia</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories-title">Explora Nuestras Categorías de Libros</div>
+
+    <div class="categories">
+        <div class="category-box" onclick="irACategoriaDesarrolloPersonal()">
+            <img src="https://img.icons8.com/ios/452/brain.png" alt="Desarrollo Personal">
+            <h3>Desarrollo Personal</h3>
+            <p class="category-description">Libros que te ayudan a crecer como persona, mejorar tu bienestar y aprender habilidades que transforman tu vida.</p>
+        </div>
+        
+        <div class="category-box" onclick="irACategoriaDesarrolloProfesional()">
+            <img src="https://img.icons8.com/ios/452/business.png" alt="Desarrollo Profesional">
+            <h3>Desarrollo Profesional</h3>
+            <p class="category-description">Recursos que te enseñan nuevas habilidades, estrategias de carrera y consejos para avanzar en tu vida profesional.</p>
+        </div>
+
+        <div class="category-box" onclick="irACategoriaNovelas()">
+            <img src="https://img.icons8.com/ios/452/book.png" alt="Novelas">
+            <h3>Novelas</h3>
+            <p class="category-description">Historias fascinantes que te llevan a mundos imaginarios, llenas de aventuras, emoción y creatividad.</p>
+        </div>
+
+        <div class="category-box" onclick="irACategoriaCuentos()">
+            <img src="https://img.icons8.com/ios/452/dragon.png" alt="Cuentos">
+            <h3>Cuentos</h3>
+            <p class="category-description">Relatos cortos que te sumergen en diferentes mundos, perfectos para disfrutar en cualquier momento.</p>
+        </div>
+    </div>
+
+    <script>
+        function irACategoriaDesarrolloPersonal() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "desarrollopersonal.html"; // Redirigir a la página de Desarrollo Personal
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irACategoriaDesarrolloProfesional() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "desarrolloprofesional.html"; // Redirigir a la página de Desarrollo Profesional
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irACategoriaNovelas() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "novelacategoria.html"; // Redirigir a la página de Novelas
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irACategoriaCuentos() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "cuentos.html"; // Redirigir a la página de Cuentos
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irAlLibro1() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "detalle.html"; // Redirigir al Libro 1
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irAlLibro2() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "libro2.html"; // Redirigir al Libro 2
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irAlLibro3() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "libro3.html"; // Redirigir al Libro 3
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irAlLibro4() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "libro4.html"; // Redirigir al Libro 4
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+
+        function irAlLibro5() {
+            document.body.style.animation = "fadeOut 1s forwards";
+            setTimeout(function() {
+                window.location.href = "libro5.html"; // Redirigir al Libro 5
+            }, 1000); // Esperar 1 segundo para la animación
+        }
+    </script>
+</body>
+</html>

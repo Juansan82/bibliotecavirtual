@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Libro 4</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'SF Pro Display', sans-serif;
+            background: #1e3145; /* Color uniforme */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0; /* Comienza invisible */
+        }
+
+        /* Efecto de entrada */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            top: 0;
+            left: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            z-index: 1;
+        }
+
+        .book-details {
+            display: flex;
+            background-color: rgba(30, 58, 95, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .book-image img {
+            width: 200px;  /* Ajustamos el tamaño de la imagen */
+            height: 300px; /* Hacemos que la imagen tenga una altura adecuada */
+            object-fit: cover; /* Esto asegura que la imagen se recorte y ajuste al contenedor sin deformarse */
+            border-radius: 8px;
+        }
+
+        .book-info {
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .book-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .book-info p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .motivational-text {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-back {
+            background-color: #2A4D8F;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background-color: #1E3A5F;
+        }
+
+        .btn-read {
+            background-color: #28A745;
+            color: white;
+        }
+
+        .btn-read:hover {
+            background-color: #1E7E34;
+        }
+
+        .page-exit {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="fade-in"> <!-- Aplica la animación de entrada -->
+
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="book-details">
+            <div class="book-image">
+                <img src="https://images.cdn1.buscalibre.com/fit-in/360x360/fc/c4/fcc4472cce4e4322ba48a81b1a313bfc.jpg" alt="El retrato de Dorian Gray">
+            </div>
+            <div class="book-info">
+                <h2>El retrato de Dorian Gray</h2>
+                <p>Es una obra maestra de Oscar Wilde que explora la belleza, la moralidad y la corrupción. Dorian Gray, un joven encantador y atractivo, ve su vida transformada después de que un pintor lo retrate. A lo largo de su vida, Dorian hace un pacto para que su retrato envejezca y cargue con los efectos de sus vicios, mientras él permanece joven y hermoso. A medida que sus pecados se acumulan, su retrato se convierte en un reflejo macabro de su alma deteriorada.</p>
+                
+                <p class="motivational-text">📖 ¡El arte de vivir sin arrepentimientos! 🌟</p>
+
+                <div class="buttons">
+                    <button class="btn btn-back" onclick="volver()">Volver</button>
+                    <!-- Enlace al archivo con el nombre actualizado -->
+                    <a href="elretratodedoriangray.pdf" download class="btn btn-read">Comenzar a leer este libro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function volver() {
+            document.body.classList.add("page-exit");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 600);
+        }
+
+        function generarEstrellas(cantidad) {
+            const starContainer = document.getElementById('stars');
+            for (let i = 0; i < cantidad; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + 'vw';
+                starContainer.appendChild(star);
+            }
+        }
+
+        window.onload = function() {
+            document.body.style.opacity = "1";
+        };
+
+        generarEstrellas(60); // Estrellas en todo el fondo
+    </script>
+
+</body>
+</html>
